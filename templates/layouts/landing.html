@@ -7,10 +7,12 @@
     <title>Strawberry Diseases Detection</title>
     <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
 </head>
-<body class="bg-fourth">
-    {% include 'layouts/partials/sidebar.html' %}
+<body class="bg-primary">
+    {% include 'layouts/partials/navbar.html' %}
     
     {% block content %} {% endblock %}
+
+    {% include 'layouts/partials/footer.html' %}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>

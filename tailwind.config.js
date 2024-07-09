@@ -9,7 +9,7 @@ module.exports = {
 		extend: {
 			colors: {
 				primary: '#003C43',
-				secondary: '#E3FEF7',
+				secondary: '#135D66',
 				third: '#77B0AA',
 				fourth: '#E3FEF7',
 				text: '#F5F5F5',
@@ -19,7 +19,7 @@ module.exports = {
 			fontFamily: {
 				raleway: ["Raleway", 'sans-serif'],
 				pacifio: ["Pacifico", 'cursive'],
-				vibur: ["Vibur", 'cursive'],
+				vibur: ['Vibur', 'cursive'],
 				montserrat: ['Montserrat', 'sans-serif'],
 			},
 		},
