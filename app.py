@@ -19,5 +19,9 @@ def upload():
 def result():
 	return render_template("upload/result.html")
 
+@app.route("/camera")
+def camera():
+	return render_template("camera/index.html")
+
 if __name__ == '__main__':
 	app.run(debug=True)
