@@ -19,6 +19,10 @@ def upload():
 def result():
 	return render_template("upload/result.html")
 
+@app.route("/history")
+def history():
+	return render_template("upload/history.html")
+
 @app.route("/camera")
 def camera():
 	return render_template("camera/index.html")
