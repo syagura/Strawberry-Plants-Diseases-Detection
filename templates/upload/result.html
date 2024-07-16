@@ -1,39 +1,55 @@
 {% extends "layouts/app.html" %}
 
 {% block content %}
-    <!-- Main Start -->
-    <section class="p-4 sm:ml-64">
-        <div class="p-4 ">
-            <!-- Header -->
-            <h2 class="text-3xl md:text-4xl font-montserrat font-bold text-accent mt-2 ">Result of Detection</h2>
-            <!-- Images -->
-            <div class="w-full mx-auto py-5 flex flex-col justify-between sm:border-slate-500 md:border-blue-500 lg:border-rose-500">
-                <!-- DYNAMIC - Result Image -->
-                <div class="mx-auto my-4 md:my-6 lg:my-8">
-                    <div class="max-w-md p-4 lg:p-5 mx-auto bg-white rounded-lg shadow-lg">
-                        <img class="transition-all duration-300 rounded-lg shadow hover:shadow-lg md:hover:shadow-xl hover:shadow-gray-300 ease-in-out md:hover:scale-125" src="static\img\leaf_spot13.jpg" alt="Text Detection Image">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Result -->
-            <div class="max-w-sm mx-auto">
-                <!-- DYNAMIC - Label -->
-                <div class="w-2/3 flex flex-row justify-between lg:mt-4 mx-auto p-4 bg-primary rounded-lg shadow hover:shadow-lg md:hover:shadow-xl hover:shadow-gray-300 hover:border-primary transition duration-300 ease-in-out md:hover:scale-125 text-text hover:text-white font-montserrat font-semibold">
-                    <h3 class="text-base -mt-2 -ml-1 font-montserrat font-medium">Result</h3>
-                    <p class="text-right text-xl lg:text-2xl -mb-2 font-montserrat font-semibold pt-4">LABEL</p>
-                </div>
-                <!-- More -->
-                <div class="w-full mx-auto flex flex-col md:flex-row mt-2 md:mt-0 justify-center md:justify-around">
-                    <a href="/download-result" class="w-fit mx-auto text-base text-center font-semibold rounded-md font-montserrat px-9 py-2 mt-4 md:mt-6 duration-300 text-text hover:text-white bg-primary hover:bg-primary/95 border-primary border-2 focus:ring-4 focus:outline-none focus:ring-primary/75">
-                        Download
-                    </a>
-                    <a href="/read-again" class="w-fit mx-auto text-base text-center font-semibold rounded-md font-montserrat px-9 py-2 mt-4 md:mt-6 duration-300 text-primary hover:text-white bg-fourth hover:bg-primary border-primary border-2 focus:ring-4 focus:outline-none focus:ring-primary">
-                        Read Again
-                    </a>
+<section class="p-4 sm:ml-64">
+    <div class="p-4">
+        <h2 class="text-3xl md:text-4xl font-montserrat font-bold text-accent mt-2">Result of Detection</h2>
+        <div class="w-full mx-auto py-5 flex flex-col justify-between sm:border-slate-500 md:border-blue-500 lg:border-rose-500">
+            <div class="mx-auto my-4 md:my-6 lg:my-8">
+                <div class="max-w-md p-4 lg:p-5 mx-auto bg-white rounded-lg shadow-lg">
+                    <img class="transition-all duration-300 rounded-lg shadow hover:shadow-lg md:hover:shadow-xl hover:shadow-gray-300 ease-in-out md:hover:scale-125" src="{{ img_path }}" alt="Text Detection Image" id="imagehere">
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Main End -->
+        <div class="max-w-sm mx-auto">
+            <div class="w-2/3 flex flex-row justify-between lg:mt-4 mx-auto p-4 bg-primary rounded-lg shadow hover:shadow-lg md:hover:shadow-xl hover:shadow-gray-300 hover:border-primary transition duration-300 ease-in-out md:hover:scale-125 text-text hover:text-white font-montserrat font-semibold">
+                {% if predictionalexnet %}
+                <h3 class="text-base -mt-2 -ml-1 font-montserrat font-medium">Result AlexNet</h3>
+                <p class="text-right text-xl lg:text-2xl -mb-2 font-montserrat font-semibold pt-4" id="result-alexnet">{{predictionalexnet}}</p>
+                {% endif %}
+            </div>
+            <div class="w-2/3 flex flex-row justify-between lg:mt-4 mx-auto p-4 bg-primary rounded-lg shadow hover:shadow-lg md:hover:shadow-xl hover:shadow-gray-300 hover:border-primary transition duration-300 ease-in-out md:hover:scale-125 text-text hover:text-white font-montserrat font-semibold">
+                {% if predictiondensenet %}
+                <h3 class="text-base -mt-2 -ml-1 font-montserrat font-medium">Result DenseNet</h3>
+                <p class="text-right text-xl lg:text-2xl -mb-2 font-montserrat font-semibold pt-4" id="result-densenet">{{predictiondensenet}}</p>
+                {% endif %}
+            </div>
+            <div class="w-2/3 flex flex-row justify-between lg:mt-4 mx-auto p-4 bg-primary rounded-lg shadow hover:shadow-lg md:hover:shadow-xl hover:shadow-gray-300 hover:border-primary transition duration-300 ease-in-out md:hover:scale-125 text-text hover:text-white font-montserrat font-semibold">
+                {% if predictionresnet %}
+                <h3 class="text-base -mt-2 -ml-1 font-montserrat font-medium">Result ResNet</h3>
+                <p class="text-right text-xl lg:text-2xl -mb-2 font-montserrat font-semibold pt-4" id="result-resnet">{{predictionresnet}}</p>
+                {% endif %}
+            </div>
+            <div class="w-full mx-auto flex flex-col md:flex-row mt-2 md:mt-0 justify-center md:justify-around">
+                <a href="/download-result" class="w-fit mx-auto text-base text-center font-semibold rounded-md font-montserrat px-9 py-2 mt-4 md:mt-6 duration-300 text-text hover:text-white bg-primary hover:bg-primary/95 border-primary border-2 focus:ring-4 focus:outline-none focus:ring-primary/75">Download</a>
+                <a href="/read-again" class="w-fit mx-auto text-base text-center font-semibold rounded-md font-montserrat px-9 py-2 mt-4 md:mt-6 duration-300 text-primary hover:text-white bg-fourth hover:bg-primary border-primary border-2 focus:ring-4 focus:outline-none focus:ring-primary">Read Again</a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
+
+<!-- {% block script %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+<script>
+  var socket = io();
+  socket.on('prediction', function(message) {
+    const imgElement = document.getElementById('imagehere');
+    imgElement.src = "data:image/png;base64," + message.image;
+    // document.getElementById("imagehere").src = src;
+    document.getElementById("result-alexnet").innerText = message.result_Alexnet;
+    document.getElementById("result-densenet").innerText = message.result_Densenet;
+    document.getElementById("result-resnet").innerText = message.result_Resnet;
+  });
+</script>
+{% endblock %} -->

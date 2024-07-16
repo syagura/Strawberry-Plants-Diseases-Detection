@@ -7,6 +7,7 @@
             <h2 class="text-3xl md:text-4xl font-montserrat font-bold text-primary mt-2 ">Detect from Image</h2>
             <!-- File Upload -->
             <div class="w-full max-w-sm min-h-fit p-8 bg-white border border-gray-200 rounded-lg shadow-lg md:p-10 mx-auto mt-10">
+                <form action="{{ url_for('submit') }}" method="post" enctype="multipart/form-data">
                 <div class="flex flex-col items-center justify-center w-full">
                     <!-- DYNAMIC - Dropzone Upload File -->
                     <label for="dropzone-file" class="relative flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
@@ -17,19 +18,42 @@
                             <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">PNG or JPG (MAX. 800x400px)</p>
                         </div>
-                        <!-- <input id="dropzone-file" type="file" name="input-image" class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer" /> -->
+                        <input id="dropzone-file" type="file" name="input-image" class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer" />
                         <div id="tampilan-input-akhir" class="opacity-0 absolute top-0 left-0 flex items-center justify-center w-full h-full font-medium text-sm text-gray-400">
                         </div>
                     </label>
-                    <form action="/result">
                         <button type="submit" class="text-base text-center font-semibold rounded-xl font-montserrat px-9 py-2 mt-4 md:mt-6 duration-300 text-text hover:text-white bg-primary opacity-90 hover:opacity-100 border-primary border-2 focus:ring-4 focus:outline-none focus:ring-primary">
                             Process
                         </button>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
     <!-- Main End -->
-    
 {% endblock %}
+<!-- {% block script %}
+<script>
+  var socket = io();
+  socket.on('prediction', function(message) {
+    var frame = new Uint8Array(message.frame);
+    var src = URL.createObjectURL( new Blob([frame], { type: 'image/png' }));
+    "{% if data %}"
+      var img = new Image();
+      $("#imagehere").attr('src', src);
+      $("#NIM").attr('value', nim);
+      $("#Nama").attr('value', nama);
+      $("#Mata-Kuliah").attr('value', matkul);
+      $("#Pertemuan").attr('value', pertemuan);
+      $("#Masuk").attr('value', message.time)
+      $("#Status").attr('value', "Hadir")
+
+      $("#modalTop").modal("show")
+    "{% else %}"
+        $("#exampleModal").modal("show")
+    "{% endif %}" 
+      
+      
+  });
+</script>
+{% endblock %} -->

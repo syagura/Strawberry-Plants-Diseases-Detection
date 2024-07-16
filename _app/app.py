@@ -1,4 +1,5 @@
-from flask import Flask, render_template, Response, request, flash
+from flask import Flask, render_template, Response, request, flash, jsonify
+from flask_socketio import SocketIO, emit
 from keras.models import load_model
 import tensorflow as tf 
 from tensorflow import keras
@@ -10,7 +11,7 @@ from keras.preprocessing import image
 import numpy as np
 import os
 import cv2 as cv
-# from strawberry-diseases-detection import Recognizer()
+from strawberry-diseases-detection import Recognizer()
 
 app = Flask(__name__)
 
