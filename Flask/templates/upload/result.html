@@ -38,18 +38,3 @@
     </div>
 </section>
 {% endblock %}
-
-<!-- {% block script %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
-<script>
-  var socket = io();
-  socket.on('prediction', function(message) {
-    const imgElement = document.getElementById('imagehere');
-    imgElement.src = "data:image/png;base64," + message.image;
-    // document.getElementById("imagehere").src = src;
-    document.getElementById("result-alexnet").innerText = message.result_Alexnet;
-    document.getElementById("result-densenet").innerText = message.result_Densenet;
-    document.getElementById("result-resnet").innerText = message.result_Resnet;
-  });
-</script>
-{% endblock %} -->

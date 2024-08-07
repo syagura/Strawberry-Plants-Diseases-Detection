@@ -32,28 +32,3 @@
     </section>
     <!-- Main End -->
 {% endblock %}
-<!-- {% block script %}
-<script>
-  var socket = io();
-  socket.on('prediction', function(message) {
-    var frame = new Uint8Array(message.frame);
-    var src = URL.createObjectURL( new Blob([frame], { type: 'image/png' }));
-    "{% if data %}"
-      var img = new Image();
-      $("#imagehere").attr('src', src);
-      $("#NIM").attr('value', nim);
-      $("#Nama").attr('value', nama);
-      $("#Mata-Kuliah").attr('value', matkul);
-      $("#Pertemuan").attr('value', pertemuan);
-      $("#Masuk").attr('value', message.time)
-      $("#Status").attr('value', "Hadir")
-
-      $("#modalTop").modal("show")
-    "{% else %}"
-        $("#exampleModal").modal("show")
-    "{% endif %}" 
-      
-      
-  });
-</script>
-{% endblock %} -->
