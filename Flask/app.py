@@ -17,9 +17,9 @@ import numpy as np
 
 app = Flask(__name__)
 
-alexnet = load_model("model/Alex_Net1.h5")
-densenet = load_model("model/DenseNet.h5")
-resnet = load_model("model/ResNet.h5")
+alexnet = load_model("../model/Alex_Net1.h5")
+densenet = load_model("../model/DenseNet.h5")
+resnet = load_model("../model/ResNet.h5")
 
 
 UPLOAD_FOLDER = 'uploads/'
@@ -129,15 +129,15 @@ def get_image():
 @app.route("/")
 @app.route("/index")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", page='home')
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html", page='about')
 
 @app.route("/upload")
 def upload():
-    return render_template("upload/index.html")
+    return render_template("upload/index.html", page='upload')
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -187,15 +187,15 @@ def uploads(filename):
 
 @app.route("/result")
 def result():
-    return render_template("upload/result.html")
+    return render_template("upload/result.html", page='upload')
 
 @app.route("/history")
 def history():
-    return render_template("upload/history.html")
+    return render_template("upload/history.html", page='history')
 
 @app.route("/camera")
 def camera():
-    return render_template("camera/index.html")
+    return render_template("camera/index.html", page='camera')
 
 @app.route('/video_feed')
 def video_feed():

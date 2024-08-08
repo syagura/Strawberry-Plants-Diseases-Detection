@@ -14,12 +14,12 @@
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                 <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:mr-4 md:border-0">
                     <li class="mb-2 md:mb-0">
-                        <a href="/" class="block py-2 pl-3 pr-4 text-base xl:text-lg font-montserrat font-semibold text-text hover:text-white bg-secondary duration-300 rounded md:bg-transparent" aria-current="page">
+                        <a href="/" class="block py-2 pl-3 pr-4 text-base xl:text-lg font-montserrat font-semibold duration-300 rounded md:bg-transparent {% if page == 'home' %} text-white bg-secondary {% else %} text-slate-300 hover:text-white hover:bg-secondary hover:md:bg-transparent {% endif %}" aria-current="page">
                             Home
                         </a>
                     </li>
                     <li class="">
-                        <a href="/about" class="block py-2 pl-3 pr-4 text-base xl:text-lg font-montserrat font-semibold text-slate-300 hover:text-white hover:bg-secondary duration-300 rounded md:bg-transparent hover:md:bg-transparent " aria-current="page">
+                        <a href="/about" class="block py-2 pl-3 pr-4 text-base xl:text-lg font-montserrat font-semibold duration-300 rounded md:bg-transparent {% if page == 'about' %} text-white bg-secondary {% else %} text-slate-300 hover:text-white hover:bg-secondary hover:md:bg-transparent {% endif %}" aria-current="page">
                             About
                         </a>
                     </li>
