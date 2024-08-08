@@ -25,4 +25,4 @@
 
 # 5. Circuit Diagram
 Berikut adalah penjelasan mengenai rangkaian yang ditunjukkan pada gambar antara Arduino UNO dan ESP32-CAM:
-![Circuit Diagram]("/sketch_arduino/Untitled-Sketch_bb.png")
+![Circuit Diagram]("sketch arduino/Untitled Sketch_bb.png")
