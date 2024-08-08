@@ -11,16 +11,21 @@
             </div>
             <!-- DYNAMIC - Label -->
             <div class="max-w-sm mx-auto mt-10 min-h-fit">
-                <div class="w-2/8 flex flex-row justify-between lg:mt-4 mx-auto p-8 bg-primary rounded-lg shadow hover:shadow-lg md:hover:shadow-xl hover:shadow-gray-300 hover:border-primary transition duration-300 ease-in-out md:hover:scale-125 text-text hover:text-white font-montserrat font-semibold">
-                    <h3 class="text-base -mt-2 -ml-1 font-montserrat font-medium">Result</h3>
-                    <p id="result-alexnet" class="text-right text-xl lg:text-2xl -mb-2 font-montserrat font-semibold pt-4">AlexNet: LABEL</p>
-                    <p id="result-densenet" class="text-right text-xl lg:text-2xl -mb-2 font-montserrat font-semibold pt-4">DenseNet: LABEL</p>
-                    <p id="result-resnet" class="text-right text-xl lg:text-2xl -mb-2 font-montserrat font-semibold pt-4">ResNet: LABEL</p>
+                <div class="w-2/8 flex flex-col justify-between lg:mt-4 mx-auto p-8 bg-primary rounded-lg shadow hover:shadow-lg md:hover:shadow-xl hover:shadow-gray-300 hover:border-primary transition duration-300 ease-in-out md:hover:scale-125 text-text hover:text-white font-montserrat font-semibold">
+                    <h3 class="text-base font-montserrat font-medium">Result</h3>
+                    <div class="flex flex-col pt-4 space-y-2 text-left text-xl lg:text-2xl font-montserrat font-semibold">
+                        <span id="result-alexnet" class="">AlexNet: LABEL</span>
+                        <span id="result-densenet" class="">DenseNet: LABEL</span>
+                        <span id="result-resnet" class="">ResNet: LABEL</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Main End -->
+{% endblock %}
+
+{% block script %}
     <script>
         const videoStream = document.getElementById('video-stream');
         videoStream.src = "{{ url_for('video_feed') }}";
