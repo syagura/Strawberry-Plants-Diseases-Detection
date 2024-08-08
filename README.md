@@ -12,12 +12,12 @@
 
 # 4. Hardware & Software Requirements
 * Hardware
-** Arduino UNO R3
+> * Arduino UNO R3
 > * ESP32-CAM
 > * Power Suplay
 > * Kabel Jumper
 > * Breadboard (Optional)
-## Software
+* Software
 > * Arduino IDE
 > * Python 3.x
 > * Flask
@@ -25,3 +25,4 @@
 
 # 5. Circuit Diagram
 Berikut adalah penjelasan mengenai rangkaian yang ditunjukkan pada gambar antara Arduino UNO dan ESP32-CAM:
+![Circuit Diagram](/sketch arduino/Untitled Sketch_bb.png")
