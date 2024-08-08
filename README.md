@@ -25,7 +25,7 @@
 
 # 5. Circuit Diagram
 Berikut adalah penjelasan mengenai rangkaian yang ditunjukkan pada gambar antara Arduino UNO dan ESP32-CAM:
-![Circuit Diagram]("sketch_arduino/Sketch_esp32-cam.png")
+![5. Circuit Diagram]("sketch_arduino/Sketch_esp32-cam.png")
 
 ## Koneksi Pin
 1. GND (Ground)
