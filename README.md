@@ -25,7 +25,8 @@
 
 ## Circuit Diagram
 Berikut adalah penjelasan mengenai rangkaian yang ditunjukkan pada gambar antara Arduino UNO dan ESP32-CAM:
-![Circuit Diagram](/sketch_arduino/Sketch_esp32-cam.png)
+
+![Circuit Diagram](/image/Sketch_esp32-cam.png)
 
 ## Koneksi Pin
 1. GND (Ground)
@@ -50,6 +51,27 @@ Berikut adalah penjelasan mengenai rangkaian yang ditunjukkan pada gambar antara
 
 5. Reset
    * Pada Arduino terdapat kabel yang terhubung antara pin Reset pada Arduino dan pin `GND` (ground) pada Arduino. Ini berfungsi untuk mengaktifkan reset pada ESP32-CAM.
+
+## Arsitektur Sistem
+Berikut adalah arsitektur sistem yang dibuat:
+
+![Arsitektur Sistem](/image/diagram-arsitektur-sistem.png)
+
+Cara kerja sistem, kamera menggunakan ESP32-Cam yang dihubungkan dengan webserver (WebSocket) untuk mengirimkan data kepala Client, sehingga user dapat mengakses kamera menggunakan web untuk mendeteksi hama pada tanaman Strawberi.
+
+## Arsitektur Pembuatan Sistem
+Berikut adalah arsitektur pembuatan sistem pengenalan hama pada tanaman strawberi:
+
+![Arsitektur Pembuatan Sistem](/image/diagram-flowchart-model.png)
+
+Pembuatan sistem deteksi hama ini diawali dengan preprocessing yang melibatkan teknik segmentasi menggunakan KNN (K-Nearest Neighbor) dan Augmentasi untuk menghasilkan data yang digunakan dalam training model, proses selanjutnya adalah split data dengan rasio 80% data train dan 20% data test. Setelah itu proses pembuatan model, model yang digunakan pada project ini menggunakan 3 model yaitu Alexnet, Densenet dan Resnet, terakhir evaluasi model menggunakan classification report dan confusion matrix.
+
+### Arsitektur traning model
+Berikut adalah arsitektur training model
+
+![Arsitektur Training Model](/image/diagram-flowchart-train-model.png)
+
+Pembuatan model diawali dengan input data yang sudah dikumpulkan, kemudian proses preprocessing menggunakan segementasi dan augmentasi, setelah itu label encoder yang berfungsi untuk mengubah label text menjadi numerik dengan tujuan agar komputer bisa memproses label, setelah itu split data yang sudah dilakukan preprocessing dengan rasio 80% data train dan 20% data test. Selanjutnya membuat model Alexnet, Densenet, dan Resnet. Pada project ini diterapkan KFold untuk untuk mengukur kinerja model dengan lebih akurat. Prosesnya melibatkan membagi dataset menjadi beberapa segmen (fold) yang sama besar, di mana model dilatih dan diuji secara bergantian pada tiap fold, sehingga semua data digunakan baik untuk pelatihan maupun pengujian. Ini membantu dalam meminimalkan overfitting dan memberikan estimasi kinerja model yang lebih robust terhadap data baru.
 
 ## Installation and Setup
 * Clone Repository: Intruksi untuk meng-clone repository dari GitHub.
