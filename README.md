@@ -59,19 +59,33 @@ Berikut adalah arsitektur sistem yang dibuat:
 
 Cara kerja sistem, kamera menggunakan ESP32-Cam yang dihubungkan dengan webserver (WebSocket) untuk mengirimkan data kepala Client, sehingga user dapat mengakses kamera menggunakan web untuk mendeteksi hama pada tanaman Strawberi.
 
-## Arsitektur Pembuatan Sistem
+### Arsitektur Pembuatan Sistem
 Berikut adalah arsitektur pembuatan sistem pengenalan hama pada tanaman strawberi:
 
 ![Arsitektur Pembuatan Sistem](/image/diagram-flowchart-model.png)
 
 Pembuatan sistem deteksi hama ini diawali dengan preprocessing yang melibatkan teknik segmentasi menggunakan KNN (K-Nearest Neighbor) dan Augmentasi untuk menghasilkan data yang digunakan dalam training model, proses selanjutnya adalah split data dengan rasio 80% data train dan 20% data test. Setelah itu proses pembuatan model, model yang digunakan pada project ini menggunakan 3 model yaitu Alexnet, Densenet dan Resnet, terakhir evaluasi model menggunakan classification report dan confusion matrix.
 
-### Arsitektur traning model
+### Arsitektur training model
 Berikut adalah arsitektur training model
 
 ![Arsitektur Training Model](/image/diagram-flowchart-train-model.png)
 
 Pembuatan model diawali dengan input data yang sudah dikumpulkan, kemudian proses preprocessing menggunakan segementasi dan augmentasi, setelah itu label encoder yang berfungsi untuk mengubah label text menjadi numerik dengan tujuan agar komputer bisa memproses label, setelah itu split data yang sudah dilakukan preprocessing dengan rasio 80% data train dan 20% data test. Selanjutnya membuat model Alexnet, Densenet, dan Resnet. Pada project ini diterapkan KFold untuk untuk mengukur kinerja model dengan lebih akurat. Prosesnya melibatkan membagi dataset menjadi beberapa segmen (fold) yang sama besar, di mana model dilatih dan diuji secara bergantian pada tiap fold, sehingga semua data digunakan baik untuk pelatihan maupun pengujian. Ini membantu dalam meminimalkan overfitting dan memberikan estimasi kinerja model yang lebih robust terhadap data baru.
+
+### Arsitektur Sistem Predict Foto
+Berikut adalah arsitektur sistem predict foto:
+
+![Arsitektur Predict Foto](/image/diagram-flowchart-sistem-predict-foto.png)
+
+### Arsitektur Sistem Predict Menggunakan ESP32-CAM
+Berikut adalah arsitektur sistem predict menggunakan ESP32-CAM:
+
+![Arsitektur Predict ESP32-CAM](/image/diagram-flowchart-sistem-using-esp32cam.png)
+
+
+Pada arsitektur ini, pertama menghubungkan ESP2-CAM dengan WiFi, kemudian terima data menggunakan file `receive_image.py`, pastikan data diterima dengan benar kemudian jalankan aplikasi flask dan user dapat mengakses kamera menggunakan website. Jika Akurasi prediksi diatas 85% maka hasil prediksi akan ditampilkan dan jika akurasi dibwah 85% maka akan menampilkan None.
+
 
 ## Installation and Setup
 * Clone Repository: Intruksi untuk meng-clone repository dari GitHub.
