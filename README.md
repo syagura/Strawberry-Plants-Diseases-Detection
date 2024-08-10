@@ -90,8 +90,8 @@ Pada arsitektur ini, pertama menghubungkan ESP2-CAM dengan WiFi, kemudian terima
 ## Installation and Setup
 * Clone Repository: Intruksi untuk meng-clone repository dari GitHub.
 ```
-git clone https://github.com/username/repository-name.git
-cd repository-name
+git clone https://github.com/syagura/Strawberry-Plants-Diseases-Detection.git
+cd Strawberry-Plants-Diseases-Detection
 ```
 * Setup Arduino IDE: Langkah-langkah untuk memprogram ESP32-CAM menggunakan Arduino IDE.
   * Instalasi board ESP32 di Arduino IDE.
@@ -104,6 +104,7 @@ cd repository-name
   *Jalankan `stream_image.py`: File ini perlu dijalankan karena ini digunakan untuk mengubungkan flask dan juga ESP32-CAM.
 ```
 python stream_image.py
+python app.py
 ```
 
 ## Usage
